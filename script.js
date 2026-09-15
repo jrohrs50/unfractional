@@ -54,7 +54,7 @@
     var form = document.querySelector("[data-contact-form]");
     if (!form) return;
     var status = document.querySelector("[data-form-status]");
-    var toAddress = form.getAttribute("data-to") || "hello@unfractional.com";
+    var toAddress = form.getAttribute("data-to") || "info@unfractional.com";
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
