@@ -55,19 +55,37 @@
         </div>
       </div>
 
-      <div class="terminal">
-        <div class="terminal-bar">
-          <span class="traffic"><span></span><span></span><span></span></span>
-          gtm-diagnostic — zsh
+      <div class="gtm-dash">
+        <div class="dash-head">
+          <span class="dash-title">GTM SYSTEM HEALTH</span>
+          <span class="dash-score"><span class="grad-text">62%</span> aligned</span>
         </div>
-        <div class="terminal-body">
-          <div class="cmd">unfractional scan --system gtm</div>
-          <div class="t-line" data-scan-line><span class="t-ok">✓</span> market-positioning ......... aligned</div>
-          <div class="t-line" data-scan-line><span class="t-warn">✗</span> pipeline-generation ........ constrained</div>
-          <div class="t-line" data-scan-line><span class="t-warn">✗</span> technical-conversion ....... inconsistent</div>
-          <div class="t-line" data-scan-line><span class="t-ok">✓</span> customer-success ........... aligned</div>
-          <div class="t-line" data-scan-line><span class="t-warn">⚠</span> partner-ecosystem .......... underutilized</div>
-          <div class="t-result" data-scan-line>3 constraints found. run <span class="grad-text">unfractional diagnose</span> for a prioritized roadmap →</div>
+        <div class="dash-grid">
+          <div class="tile" data-dash-tile>
+            <div class="tile-top"><span>POSITIONING</span><span class="tile-ok">✓</span></div>
+            <div class="tile-name">Aligned</div>
+            <div class="bar-track"><div class="bar-fill ok" data-fill="88"></div></div>
+          </div>
+          <div class="tile" data-dash-tile>
+            <div class="tile-top"><span>PIPELINE</span><span class="tile-warn">✗</span></div>
+            <div class="tile-name">Constrained</div>
+            <div class="bar-track"><div class="bar-fill warn" data-fill="38"></div></div>
+          </div>
+          <div class="tile" data-dash-tile>
+            <div class="tile-top"><span>TECHNICAL</span><span class="tile-warn">✗</span></div>
+            <div class="tile-name">Inconsistent</div>
+            <div class="bar-track"><div class="bar-fill warn" data-fill="45"></div></div>
+          </div>
+          <div class="tile" data-dash-tile>
+            <div class="tile-top"><span>CUST. SUCCESS</span><span class="tile-ok">✓</span></div>
+            <div class="tile-name">Aligned</div>
+            <div class="bar-track"><div class="bar-fill ok" data-fill="82"></div></div>
+          </div>
+          <div class="tile" data-dash-tile>
+            <div class="tile-top"><span>PARTNERS</span><span class="tile-warn">⚠</span></div>
+            <div class="tile-name">Underutilized</div>
+            <div class="bar-track"><div class="bar-fill warn" data-fill="29"></div></div>
+          </div>
         </div>
       </div>
     </div>

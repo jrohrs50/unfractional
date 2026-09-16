@@ -198,32 +198,33 @@ h4{ font-weight: 600; font-size: 1.02rem; }
 .hero-grid{ display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 @media (max-width: 940px){ .hero-grid{ grid-template-columns: 1fr; } }
 
-/* terminal / scan panel */
-.terminal{
+/* GTM system health dashboard panel */
+.gtm-dash{
   background: var(--surface);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 30px 80px -30px rgba(43,92,255,0.25);
+  padding: 1.6rem 1.7rem 1.8rem;
 }
-.terminal-bar{
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.8rem 1rem; border-bottom: 1px solid var(--line);
-  font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--ink-faint);
+.dash-head{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.3rem; }
+.dash-title{ font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-faint); }
+.dash-score{ font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ink); }
+.dash-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 0.85rem; }
+.tile{ background: var(--surface-hi); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.85rem 0.95rem; }
+.tile-top{
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; letter-spacing: 0.04em; color: var(--ink-faint);
+  margin-bottom: 0.5rem;
 }
-.terminal-bar .traffic{ display: flex; gap: 0.4rem; margin-right: 0.4rem; }
-.terminal-bar .traffic span{ width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
-.terminal-body{
-  font-family: "IBM Plex Mono", monospace; font-size: 0.86rem; line-height: 1.9;
-  padding: 1.3rem 1.4rem 1.5rem;
-}
-.terminal-body .cmd{ color: var(--ink); }
-.terminal-body .cmd::before{ content: "$ "; color: var(--cyan); }
-.t-line{ color: var(--ink-soft); white-space: pre; }
-.t-ok{ color: var(--ok); }
-.t-warn{ color: var(--warn); }
-.t-result{ color: var(--ink); margin-top: 0.6rem; display: block; }
-.t-result .grad-text{ font-weight: 600; }
+.tile-top .tile-ok{ color: var(--ok); }
+.tile-top .tile-warn{ color: var(--warn); }
+.tile-name{ font-size: 0.83rem; color: var(--ink); margin-bottom: 0.55rem; }
+.bar-track{ height: 5px; border-radius: 3px; background: rgba(244,246,255,0.08); overflow: hidden; }
+.bar-fill{ display: block; height: 100%; border-radius: 3px; width: 0%; transition: width 1s cubic-bezier(.16,.8,.24,1); }
+.bar-fill.ok{ background: var(--ok); }
+.bar-fill.warn{ background: var(--warn); }
+@media (prefers-reduced-motion: reduce){ .bar-fill{ transition: none; } }
 
 /* ---------- simple checklist (used for proof themes, etc.) ---------- */
 

@@ -1,4 +1,4 @@
-// Unfractional — shared site behavior (nav toggle, terminal scan reveal, contact form, footer year)
+// Unfractional — shared site behavior (nav toggle, GTM dashboard reveal, contact form, footer year)
 (function () {
   "use strict";
 
@@ -26,27 +26,25 @@
     });
   }
 
-  /* ---------- terminal scan: reveal diagnostic lines one at a time ---------- */
-  function initTerminal() {
-    var lines = document.querySelectorAll("[data-scan-line]");
-    if (!lines.length) return;
+  /* ---------- GTM dashboard: grow each bar to its target fill on load ---------- */
+  function initDashboard() {
+    var bars = document.querySelectorAll("[data-fill]");
+    if (!bars.length) return;
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (reduceMotion) {
-      lines.forEach(function (l) { l.style.opacity = "1"; });
+      bars.forEach(function (b) { b.style.width = b.getAttribute("data-fill") + "%"; });
       return;
     }
 
-    lines.forEach(function (l) { l.style.opacity = "0"; l.style.transition = "opacity 0.25s ease"; });
-
     var i = 0;
-    function reveal() {
-      if (i >= lines.length) return;
-      lines[i].style.opacity = "1";
+    function grow() {
+      if (i >= bars.length) return;
+      bars[i].style.width = bars[i].getAttribute("data-fill") + "%";
       i++;
-      setTimeout(reveal, 320);
+      setTimeout(grow, 120);
     }
-    setTimeout(reveal, 300);
+    setTimeout(grow, 250);
   }
 
   /* ---------- contact form: builds a prefilled mailto (no backend yet) ---------- */
@@ -99,7 +97,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
     initYear();
-    initTerminal();
+    initDashboard();
     initContactForm();
   });
 })();
